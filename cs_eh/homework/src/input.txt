@@ -1,0 +1,4 @@
+name=Alice, score=80, timestamp=2026-04-10 13:45
+name=Bob, score=35, timestamp=2026-03-31 00:32
+name=Jimmy, score=0, timestamp=2026-03-31 15:17
+name=Thomas, score=100, timestamp=2026-04-05 10:58

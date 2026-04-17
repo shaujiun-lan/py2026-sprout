@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 資訊之芽 Python 小作業</title>
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="600x600" href="sproutlogo.png">
+</head>
+<body>
+    <div class="main-particles"></div>
+    <div class="side-particles"></div>
+    <canvas id="bg-canvas"></canvas>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#intro">簡介</a></li>
+            <li><a href="#turtorial">教學</a></li>
+            <li><a href="#tasks">任務</a></li>
+            <li><a href="#final">繳交</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section>
+            <h1>2026 資訊之芽 Python 語法班 小作業</h1>
+            <h2>File I/O & Error Handling</h2>
+            <h2 class="warning">Deadline: 2026/XX/XX</h2>
+        </section>
+        <section id="intro">
+            <h1>簡介</h1>
+            <p>
+                在本次作業中，我們會練習：
+            </p>
+            <ol>
+                <li>簡易 command line 使用</li>
+                <li>閱讀、理解他人撰寫好的程式碼</li>
+                <li>更深入了解檔案、檔案系統的概念，與 Python File I/O</li>
+                <li>實際撰寫 Error Handling 的程式</li>
+            </ol>
+            <br/>
+            <p>
+                完成作業後，你需要透過表單繳交：
+            </p>
+            <ol>
+                <li>完成 Error Handling 的程式 <code>.py</code> 檔</li>
+            </ol>
+            
+            <br/>
+            <p>
+                預計需要 1~2 小時，理解題目設定、模板程式碼。
+                <br/>
+                預計需要 1 小時，加入 Error Handling 的程式，並完成所有的繳交工作。
+            </p>
+
+        </section>
+        <section id="turtorial">
+            <h1>教學</h1>
+            <h2>回顧</h2>
+            <p>
+                假設你的當前工作目錄是 <code>C:\Users\yourname</code> 而你將程式碼 <code>main.py</code> 存放在 <code>C:\Users\yourname\Downloads\homework</code> 資料夾下。
+            </p>
+            <br/>
+            <p>
+                你需要：
+            </p>
+<pre><code>cd Downloads\homework
+python main.py</code></pre>
+            <p>
+                或者是：
+            </p>
+<pre><code>python C:\Users\yourname\main.py</code></pre>
+            <p>
+                才能正確執行。
+            </p>
+
+            <h2>帶參數執行程式</h2>
+
+            <p>
+                在 CLI 執行程式時，可以在 CLI 附帶參數，在程式中讀到參數。
+            </p>
+            <br/>
+            <p>
+                舉例而言，如果透過以下 command 執行：
+            </p>
+
+<pre><code>python main.py haha 123</code></pre>
+
+            <p>Python 程式中可以用：</p>
+
+<pre><code>import sys
+
+print(sys.argv[0]) # main.py
+print(sys.argv[1]) # "haha"
+print(sys.argv[2]) # "123"</code></pre>
+
+            <p>來使用這些參數。</p>
+        </section>
+        <section id="tasks">
+            <h1>任務、執行、測試</h1>
+            <h2>環境準備</h2>
+            <p>
+                請從這個 <a href="https://github.com/your-repo-url">GitHub 連結</a> 下載作業程式碼。
+            </p>
+            <br/>
+            <p>
+                下載後，你會得到以下檔案：
+            </p>
+
+            <ul>
+                <li><code>convert.py</code> (主要作業程式)</li>
+                <li><code>grade.py</code> (評分程式)</li>
+                <li><code>input.txt</code> (範例輸入資料)</li>
+            </ul>
+
+            <p>
+                其中，本次作業的主要修改目標是 <code>convert.py</code>。你需要在這個檔案中加入 Error Handling 的程式，使程式能正確處理各種錯誤輸入。
+            </p>
+
+            <p>
+                <code>grade.py</code> 是用來評量你的程式是否正確運作的程式，你可以用它來驗證你的程式是否符合要求。你不需要修改它。
+            </p>
+            
+            <h2>動機</h2>
+            <p><i>真人真事改編</i></p>
+            <br/>
+            <p>
+                你是資訊之芽 Python 語法班課程的小助手，需要幫忙批改 200 位學生的程式設計作業。
+                <br/>
+                收到大家的程式作業後，你使用前一任小助手留下的自動化腳本為學生進行評分。腳本將學生的姓名、成績、繳交時間輸出成一筆一筆紀錄，到一個文字日誌檔內，格式如下：
+            </p>
+
+<pre><code>name=Alice, score=80, timestamp=2026-04-10 13:45
+name=Bob, score=35, timestamp=2026-03-31 00:32
+...</code></pre>
+
+            <p>
+                在取得這份日誌檔案後，你想要進一步對這些資料進行加工。
+                <br/>
+                你希望用程式自動化計算學生的遲交扣分，並且將最終結果匯出成表格，方便老師閱讀。
+            </p>
+            <br/>
+            <p>
+                在與 <a href="https://gemini.google.com/app">Gemini</a> 大戰 300 回合後，你得到了另你滿意的 Python 程式 <code>convert.py</code>。
+            </p>
+            <br/>
+            <p>
+                你開心的向其他小助手炫耀，其他小助手便友善的說：「既然你有自動化腳本，那我們的日誌檔都交給你處理吧！」
+                <br/>
+                而你實際將 <code>convert.py</code> 用來處理其他小助手的日誌檔後，頓感大事不妙。因為某些特殊的原因，其他小助手的日誌檔：
+            </p>
+            <ul>
+                <li>有部份紀錄可能缺少姓名、缺少成績、缺少繳交時間戳記</li>
+                <li>古老的評分腳本 bug 造成學生可能獲得不合理的成績</li>
+                <li>...</li>
+            </ul>
+            <p>
+                你在執行 <code>convert.py</code> 幫忙處理資料時，被迫需要一直停下來人工檢查發生了什麼錯誤，相當困擾。
+                <br/>
+                針對這樣的情況，你想要改善 <code>convert.py</code>，讓它在面對各種非預期的情況時，都能妥善地完成任務。
+            </p>
+
+
+            <h2>任務</h2>
+
+            <h3>1. 閱讀 <code>convert.py</code></h3>
+            <p>
+                請閱讀 <code>convert.py</code>，了解這份 python 程式是如何運作的。
+            </p>
+            <h3>2. 加入 Error Handling</h3>
+            <p>
+                在假設 <code>.read()</code>、<code>.write()</code> 系列的程式不會出錯的情況下，幫 <code>convert.py</code> 加上 Error Handling 的程式。
+            </p>
+            <br/>
+            <p>
+                你的 <code>convert.py</code> 必須至少處理以下幾種類型的錯誤：
+            </p>
+
+            <h4>a. 檔案相關錯誤</h4>
+
+            <ul>
+                <li>input 檔案不存在</li>
+                <li>input 路徑是資料夾</li>
+                <li>output 路徑是資料夾</li>
+                <li>output 的資料夾不存在</li>
+            </ul>
+
+            <p>
+                處理方式：
+            </p>
+
+            <ul>
+                <li>程式必須直接結束，使用 <code>sys.exit(52)</code></li>
+                <li>exit code 必須為 <code>52</code></li>
+            </ul>
+
+            <h4>b. deadline 錯誤</h4>
+
+            <ul>
+                <li>格式錯誤</li>
+                <li>無法被 datetime 正確解析</li>
+            </ul>
+
+            <p>
+                處理方式：
+            </p>
+
+            <ul>
+                <li>程式必須直接結束，使用 <code>sys.exit(52)</code></li>
+                <li>exit code 必須為 <code>52</code></li>
+            </ul>
+
+            <h4>c. 欄位為空</h4>
+
+            <ul>
+                <li>name 為空</li>
+                <li>score 為空</li>
+                <li>timestamp 為空</li>
+            </ul>
+
+            <p>
+                處理方式 (優先級由前往後)：
+            </p>
+
+            <ul>
+                <li>name 為空 -> 跳過這一筆紀錄</li>
+                <li>score 為空 -> 表格中的所有成績欄位變為<code>X</code></li>
+                <li>timestamp 為空 -> 表格中的最終成績欄位變為<code>X</code></li>
+            </ul>
+
+
+            <h4>d. score 錯誤</h4>
+
+            <ul>
+                <li>不是數字 (例如 abc)</li>
+                <li>超出範圍 (小於 0 或大於 100)</li>
+            </ul>
+
+            <p>
+                處理方式：
+            </p>
+
+            <ul>
+                <li>表格中的所有成績欄位變為<code>X</code></li>
+            </ul>
+
+            <h4>e. timestamp 錯誤</h4>
+
+            <ul>
+                <li>格式錯誤</li>
+                <li>無法被 datetime 正確解析</li>
+            </ul>
+
+            <p>
+                處理方式：
+            </p>
+
+            <ul>
+                <li>表格中的最終成績欄位變為<code>X</code></li>
+            </ul>
+
+            <h4>f. 整行格式錯誤</h4>
+
+            <ul>
+                <li>無法被正確解析成 name / score / timestamp</li>
+            </ul>
+
+            <p>
+                處理方式：
+            </p>
+
+            <ul>
+                <li>跳過這一筆紀錄</li>
+            </ul>
+
+            <h2>執行</h2>
+
+            <p>在 CLI 執行：</p>
+
+<pre><code>python convert.py input.txt output.txt "2026-04-04 12:00"</code></pre>
+
+            <p>
+                參數說明：
+            </p>
+
+            <ul>
+                <li><code>input.txt</code> -> 輸入日誌檔案</li>
+                <li><code>output.txt</code> -> 輸出表格檔案</li>
+                <li><code>deadline</code> -> 截止時間</li>
+            </ul>
+
+
+            <h2>測試</h2>
+
+            <p>
+                做完後可以使用測試程式檢查你的實作，通過即可獲得滿分：
+            </p>
+
+<pre><code>python grade.py convert.py</code></pre>
+
+            <p>
+                如果你的程式實做正確，會看到兩個 PASS。
+            </p>
+
+        </section>
+        <section id="final">
+            <h1>繳交</h1>
+            <p>
+                請將修改好的 <code>convert.py</code> 透過這個 <a href="">表單</a> 進行繳交。
+            </p>
+
+        </section>
+    </main>
+
+    <div id="theme-switcher" class="theme-switcher">
+        <div class="theme-color" id="light-theme" style="background: linear-gradient(90deg, #f9fafb 50%, #e11d48 50%)"></div>
+        <div class="theme-color" id="dark-theme" style="background: linear-gradient(90deg, #121212 50%, #f43f5e 50%)"></div>
+        <div class="theme-color" id="cute-theme" style="background: linear-gradient(90deg, #fde68a 50%, #f9a8d4 50%)"></div>
+        <div class="theme-color" id="tech-theme" style="background: linear-gradient(90deg, #0f172a 50%, #38bdf8 50%)"></div>
+        <div class="theme-color" id="greek-theme" style="background: linear-gradient(90deg, #f0f4f8 50%, #2563eb 50%)"></div>
+    </div>
+
+    <footer>
+        <p>Thanks 🤖 <strong>ChatGPT</strong></p>
+        <p>Powered by <a href="https://pages.github.com/" target="_blank" style="color: #4ea1ff; text-decoration: none;">GitHub Pages</a></p>
+        <p>Crafted by 🐾 <strong>pooiscoding</strong></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
